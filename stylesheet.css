@@ -1,0 +1,329 @@
+/* 基本的なリセットとフォント設定 */
+body, h1, h2, p, ul, li, figure { /* figureもリセットに追加 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    /* 全体の基本フォントをNoto Serif JPに */
+    font-family: 'Noto Serif JP', serif;
+    background-color: #ffffff; /* ボディーの背景色 */
+    color: #977005; /* abautの文字 */
+    line-height: 1.7; /* 行間を少し広げて読みやすく */
+    font-weight: 400; /* 標準の文字の太さ */
+}
+
+a {
+    color: #c0a062; /* 少し落ち着いたゴールド系 */
+    text-decoration: none;
+}
+
+a:hover {
+    /* color: #d4af37; */ /* ホバーで少し明るくする場合 */
+    text-decoration: underline;
+}
+
+/* ヘッダー */
+header {
+    /* background-color: rgba(0, 0, 0, 0.5); */ /* 背景を少し透過させる場合 */
+    border-bottom: 1px solid #003f1f;
+    position: sticky; /* スクロールしても上部に固定する場合（必要なら） */
+    top: 0;          /* スティッキーヘッダーにする場合 */
+    z-index: 10;     /* 他の要素より手前に表示 */
+    background-color: #ffffff; /* 背景色を指定しないと下のコンテンツが透ける */
+    
+}
+
+.header-inner {
+    max-width: 1200px; /* ヘッダー内容の最大幅 */
+    margin: 0 auto;   /* 中央揃え */
+    padding: 15px 40px; /* 上下のpaddingを少し調整 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 { /* ロゴがテキストの場合 */
+    font-size: 1.6em; /* サイズ調整 */
+    color: #000000;
+    font-weight: 700; /* やや太字 */
+    line-height: 1.2; /* ロゴ周りの行間調整 */
+}
+/* ロゴが画像の場合は .logo img { ... } でスタイル指定 */
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 30px; /* ナビ項目間のスペースを少し広げる */
+}
+
+header nav ul li a {
+    font-size: 0.95em; /* 少し小さめにして上品に */
+    color: #f7fffa; /* 文字色を少し柔らかく */
+    text-decoration: none; /* 下線なし */
+    transition: color 0.3s ease; /* ホバー時の色変化を滑らかに */
+    font-family: 'Noto Sans JP', sans-serif; /* ナビはゴシックにする場合 */
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    color: #c0a062; /* ホバー時にゴールド系に */
+    text-decoration: none; /* ホバー時も下線なし */
+}
+
+/* メインコンテンツ */
+main {
+    /* main自体のpaddingは不要 */
+    padding: 0%;
+}
+/* メインビジュアル (写真) */
+.hero-visual {
+    width: 100%; /* 幅を100%にする */
+    height: 75vh; /* 高さを画面の高さの75%に設定（調整可能） */
+    overflow: hidden; /* はみ出した画像を隠す */
+    background-color: #222; /* 画像が読み込まれるまでの背景色 */
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ったままエリア全体を覆う */
+    object-position: center; /* 画像の中央を表示 */
+    display: block; /* 画像下の余分な隙間をなくす */
+}
+
+/* コンテンツセクション */
+.content-section {
+    padding: 80px 40px; /* 上下の余白をさらに広めに */
+    max-width: 900px;
+    margin: 0 auto;
+    /* セクション間の区切り線は一旦削除（デザインによる） */
+    /* border-bottom: 1px solid #444; */
+}
+
+.content-section h2 {
+    font-size: 2.2em; /* 見出しを大きくして存在感を出す */
+    margin-bottom: 30px; /* 見出しと本文の間隔を広げる */
+    color: #977005; /* ボディー文字 */
+    font-weight: 700; /* 太字 */
+    text-align: center; /* 見出しを中央揃えにする場合 */
+    padding-bottom: 15px;
+    /* border-bottom: 1px solid #555; */ /* 見出しの下線は一旦削除 */
+}
+
+.content-section p {
+    font-size: 1em; /* 本文のフォントサイズ */
+    line-height: 1.8; /* 本文の行間をさらに読みやすく */
+    color: #0d6d00; /* 本文の色を少し調整 */
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 40px 40px;
+    margin-top: 60px;
+    border-top: 1px solid #00461f;
+    font-size: 0.85em;
+    color: #000000;
+    font-family: 'Noto Sans JP', sans-serif; /* フッターはゴシックにする場合 */
+}
+header nav ul { /* 親要素である ul を選択 */
+    display: flex; /* ← これで li が横並びになる */
+    list-style: none; /* リストの点を消す (横並びとは直接関係ないが見た目のため) */
+    padding: 0; /* ブラウザ標準のulのpaddingを消す (見た目のため) */
+}
+
+header nav ul li { /* 子要素 li へのスタイル */
+    margin-left: 30px; /* ← 各項目の左側に余白を設けて間隔を調整 */
+}
+
+/* 最初の項目には左側の余白は不要なので、以下を追加しても良い */
+header nav ul li:first-child {
+    margin-left: 0;
+}
+/* "my-horizontal-list" というクラス名がついた ul 要素に対して */
+.my-horizontal-list {
+    display: flex;         /* ★★★ これが li を横に並べるための最も重要な指定 ★★★ */
+  
+    /* 以下は見た目を整えるための一般的な指定 (任意) */
+    list-style: none;    /* リストの先頭の点 (・) を消す */
+    padding: 0;          /* ulが持つデフォルトの左側の余白を消す */
+    margin: 0;           /* ulが持つデフォルトの上下の余白を消す */
+    gap: 1em;            /* 項目と項目の間の隙間を空ける (例: 1文字分のスペース) */
+                         /* gapを使わない場合は、liに margin-left や margin-right を指定します */
+         justify-content: space-evenly; /* ← これで中央に均等配置 (推奨) */
+                        }
+  
+  /* 必要であれば、li 自体のスタイルも指定できます */
+  .my-horizontal-list li {
+ background-color: #ffffff;
+    /* border: 1px solid #ccc; */
+    /* padding: 5px 10px; */
+  }
+
+ /* メインビジュアル (フェードイン・アウト) */
+.hero-visual {
+    width: 100%;
+    height: 75vh; /* 高さは適宜調整 */
+    overflow: hidden;
+    position: relative; /* ★ 子要素の absolute 配置の基準にする */
+    background-color: #1a1a1a; /* 画像が読み込まれるまでの背景 */
+}
+
+/* ★ フェード用画像スタイル */
+.fade-image {
+    position: absolute; /* ★ 画像を重ねる */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0; /* ★ 最初は透明にしておく */
+    /* ★ フェード用アニメーションを設定 */
+    animation-name: fadeEffect;
+    animation-duration: 15s; /* 全体のサイクル時間 (3枚 * 5秒 = 15秒) */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* ★ 各画像にアニメーション開始遅延を設定 */
+.fade-image:nth-of-type(1) {
+    animation-delay: 0s; /* 1枚目は遅延なし */
+}
+.fade-image:nth-of-type(2) {
+    animation-delay: 5s; /* 2枚目は5秒後に開始 (15秒サイクルの1/3) */
+}
+.fade-image:nth-of-type(3) {
+    animation-delay: 10s; /* 3枚目は10秒後に開始 (15秒サイクルの2/3) */
+}
+
+
+/* ★ フェード用アニメーション定義 */
+@keyframes fadeEffect {
+    0% { opacity: 0; }    /* アニメーション開始時 (透明) */
+    10% { opacity: 1; }   /* 10%地点でフェードイン完了 (不透明) */
+                           /* (15秒の10% = 1.5秒かけてフェードイン) */
+    28% { opacity: 1; }   /* 28%地点まで表示を維持 */
+                           /* (表示時間は 28% - 10% = 18%。 15秒の18% = 約2.7秒) */
+    38% { opacity: 0; }   /* 38%地点でフェードアウト完了 (透明) */
+                           /* (15秒の10% = 1.5秒かけてフェードアウト) */
+    100% { opacity: 0; }  /* 残りの時間は透明のまま */
+}
+/* style.css */
+
+/* 横並び画像リンクのコンテナ */
+.two-image-links {
+    display: flex;            /* ★ 中の要素(aタグ)を横並びにする */
+    justify-content: space-evenly; /* ★ 左右の余白も含めて均等に配置 */
+                                 /* 他の選択肢: */
+                                 /* space-around: 各要素の周りに均等な余白 */
+                                 /* space-between: 両端に寄せて間の余白を均等に */
+                                 /* center: 中央に寄せる */
+    align-items: center;      /* 画像の高さが違う場合に中央で揃える */
+    gap: 20px;                /* 画像間の最小の隙間を指定 (任意) */
+    margin-top: 30px;         /* 上の要素との間隔 (任意) */
+}
+
+/* 画像リンクアイテム (aタグ自体) のスタイル (任意) */
+.image-link-item {
+     /* 必要であれば幅などを指定 */
+     /* 例: width: 48%; (もし左右いっぱいに広げたい場合、gapと合わせて調整) */
+     display: block; /* レイアウト調整しやすくするため */
+}
+
+/* ショップバナー横並びリンク画像自体のスタイル */
+.link-image {
+    display: block;   /* 画像下の余分な隙間を防ぐ & margin auto等で中央揃えしやすく */
+    max-width: 100%;  /* コンテナ(aタグ)の幅を超えないようにする */
+    height: auto;     /* 幅に合わせて高さを自動調整 */
+    border: none;     /* リンク画像の枠線を消す */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* 軽い影をつける (任意) */
+    transition: all 0.3s ease; /* ホバー効果を滑らかに */
+}
+
+/* 画像リンクにマウスが乗った時の効果 (任意) */
+.image-link-item:hover .link-image {
+    opacity: 0.8; /* 少し透明にする */
+    transform: scale(1.03); /* 少し拡大する */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 影を少し濃くする */
+}
+
+/* もしセクション全体に背景などをつけたい場合 (任意) */
+/*
+.content-section {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* style.css */
+
+/* 3連画像リンクのコンテナ */
+.three-links-container {
+    display: flex;
+    justify-content: space-evenly; /* 均等配置 (左右の余白含む) が3つの場合は特にきれいに見えやすい */
+                                  /* space-around や space-between も試せます */
+    align-items: flex-start; /* 上端揃え (キャプション等がある場合) / center (画像だけなら中央揃え) */
+    flex-wrap: wrap; /* 画面幅が狭い時に折り返すようにする (レスポンシブ対応の準備) */
+    gap: 20px; /* アイテム間の最小の隙間 */
+    margin-top: 30px;
+    padding: 10px 0; /* 上下の内側余白 (任意) */
+}
+
+/* 各リンクアイテム (aタグ) */
+.link-item {
+    display: block; /* or inline-block */
+    text-decoration: none; /* リンクの下線を消す */
+    color: inherit; /* 親要素の色を継承 (キャプション用) */
+    text-align: center; /* キャプションを中央揃えにする場合 */
+    /* 幅を指定する場合 (例: 3つ均等割＋gap考慮) */
+    /* width: calc(33.33% - 14px); */ /* (gapが20pxの場合の計算例、少し複雑) */
+    /* または flex プロパティで柔軟に */
+    flex: 1 1 200px; /* flex-grow:1, flex-shrink:1, flex-basis:200px (最小幅200pxで伸縮) */
+    max-width: 30%; /* または最大幅を指定 (任意) */
+}
+
+/* リンク画像自体のスタイル */
+.link-item .link-image { /* セレクタを少し具体的に */
+    display: block;
+    width: 100%; /* ★ 親要素(aタグ)の幅に合わせる */
+    max-width: 100%; /* 念のため */
+    height: auto;
+    border: none;
+    margin-bottom: 10px; /* 画像とキャプションの間隔 (キャプションがある場合) */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* ホバー効果 */
+.link-item:hover .link-image {
+    opacity: 0.8;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* キャプションのスタイル (もし追加した場合) */
+.link-item p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    color: #ccc; /* 文字色 */
+}
+
+/* --- レスポンシブ対応 (画面が狭い場合) --- */
+@media (max-width: 768px) { /* 768px以下の画面幅の場合 */
+    .three-links-container {
+        flex-direction: column; /* 縦積みに変更 */
+        align-items: center;   /* 中央揃え */
+        gap: 30px; /* 縦の隙間を調整 */
+    }
+
+    .link-item {
+        flex-basis: auto; /* flex-basis をリセット */
+        width: 80%;    /* 縦積み時の幅を指定 (画面幅の80%) */
+        max-width: 300px; /* 最大幅も指定しておくと良いかも */
+    }
+}
